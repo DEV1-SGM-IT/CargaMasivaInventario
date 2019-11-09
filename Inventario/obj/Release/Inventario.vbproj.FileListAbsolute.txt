@@ -1,0 +1,12 @@
+C:\Developer\Inventario\Inventario\bin\Release\Inventario.exe
+C:\Developer\Inventario\Inventario\bin\Release\Inventario.pdb
+C:\Developer\Inventario\Inventario\bin\Release\Inventario.xml
+C:\Developer\Inventario\Inventario\obj\Release\Inventario.vbproj.ResolveComReference.cache
+C:\Developer\Inventario\Inventario\obj\Release\Inventario.Form1.resources
+C:\Developer\Inventario\Inventario\obj\Release\Inventario.LoadingData.resources
+C:\Developer\Inventario\Inventario\obj\Release\Inventario.Resources.resources
+C:\Developer\Inventario\Inventario\obj\Release\Inventario.vbproj.GenerateResource.cache
+C:\Developer\Inventario\Inventario\obj\Release\Inventario.vbproj.CoreCompileInputs.cache
+C:\Developer\Inventario\Inventario\obj\Release\Inventario.exe
+C:\Developer\Inventario\Inventario\obj\Release\Inventario.xml
+C:\Developer\Inventario\Inventario\obj\Release\Inventario.pdb

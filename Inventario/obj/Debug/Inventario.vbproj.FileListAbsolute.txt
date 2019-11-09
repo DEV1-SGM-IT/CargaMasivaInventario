@@ -1,0 +1,25 @@
+C:\Users\limon\AppData\Local\Temporary Projects\Inventario\bin\Debug\Inventario.exe
+C:\Users\limon\AppData\Local\Temporary Projects\Inventario\bin\Debug\Inventario.pdb
+C:\Users\limon\AppData\Local\Temporary Projects\Inventario\bin\Debug\Inventario.xml
+C:\Users\limon\AppData\Local\Temporary Projects\Inventario\obj\Debug\Inventario.vbprojAssemblyReference.cache
+C:\Users\limon\AppData\Local\Temporary Projects\Inventario\obj\Debug\Inventario.Form1.resources
+C:\Users\limon\AppData\Local\Temporary Projects\Inventario\obj\Debug\Inventario.Resources.resources
+C:\Users\limon\AppData\Local\Temporary Projects\Inventario\obj\Debug\Inventario.vbproj.GenerateResource.cache
+C:\Users\limon\AppData\Local\Temporary Projects\Inventario\obj\Debug\Inventario.vbproj.CoreCompileInputs.cache
+C:\Users\limon\AppData\Local\Temporary Projects\Inventario\obj\Debug\Inventario.exe
+C:\Users\limon\AppData\Local\Temporary Projects\Inventario\obj\Debug\Inventario.xml
+C:\Users\limon\AppData\Local\Temporary Projects\Inventario\obj\Debug\Inventario.pdb
+C:\Users\limon\AppData\Local\Temporary Projects\Inventario\obj\Debug\Inventario.vbproj.ResolveComReference.cache
+C:\Developer\Inventario\Inventario\bin\Debug\Inventario.exe
+C:\Developer\Inventario\Inventario\bin\Debug\Inventario.pdb
+C:\Developer\Inventario\Inventario\bin\Debug\Inventario.xml
+C:\Developer\Inventario\Inventario\obj\Debug\Inventario.vbprojAssemblyReference.cache
+C:\Developer\Inventario\Inventario\obj\Debug\Inventario.vbproj.ResolveComReference.cache
+C:\Developer\Inventario\Inventario\obj\Debug\Inventario.Form1.resources
+C:\Developer\Inventario\Inventario\obj\Debug\Inventario.LoadingData.resources
+C:\Developer\Inventario\Inventario\obj\Debug\Inventario.Resources.resources
+C:\Developer\Inventario\Inventario\obj\Debug\Inventario.vbproj.GenerateResource.cache
+C:\Developer\Inventario\Inventario\obj\Debug\Inventario.vbproj.CoreCompileInputs.cache
+C:\Developer\Inventario\Inventario\obj\Debug\Inventario.exe
+C:\Developer\Inventario\Inventario\obj\Debug\Inventario.xml
+C:\Developer\Inventario\Inventario\obj\Debug\Inventario.pdb
