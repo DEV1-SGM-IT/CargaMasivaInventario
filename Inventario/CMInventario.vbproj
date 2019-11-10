@@ -115,6 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entity\Client.vb" />
+    <Compile Include="Entity\Brand.vb" />
     <Compile Include="Entity\InventaryData.vb" />
     <Compile Include="Entity\InventaryFile.vb" />
     <Compile Include="Entity\InventaryObject.vb" />

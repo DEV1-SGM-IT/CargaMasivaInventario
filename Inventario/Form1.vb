@@ -100,6 +100,7 @@ Public Class Form1
                 inventary.Brand = ParseValueObtained(xlWorkSheet.Cells(idRow, "F").Value)
                 inventary.IdBrand = GetBrand(inventary.Brand)
 
+
                 inventary.Model = ParseValueObtained(xlWorkSheet.Cells(idRow, "G").Value)
                 inventary.Serial = ParseValueObtained(xlWorkSheet.Cells(idRow, "H").Value)
 
@@ -150,11 +151,11 @@ Public Class Form1
     End Sub
 
     Public Function GetBrand(brand As String) As String
-        Dim brandObtained = _inventaryData.Inventory.FirstOrDefault(Function(x) x.Brand.ToUpper() = brand.ToUpper())
+        Dim brandObtained = _inventaryData.Brands.FirstOrDefault(Function(x) x.Name.ToUpper() = brand.ToUpper())
         If IsNothing(brandObtained) Then
             Return 0
         Else
-            Return brandObtained.IdBrand
+            Return brandObtained.Id
         End If
     End Function
 

@@ -3,3 +3,6 @@
 ################################################################################
 
 /.vs/CMInventario/v15/Server/sqlite3
+/Inventario/bin
+*.lock
+/.vs/CMInventario/v16/Server/sqlite3

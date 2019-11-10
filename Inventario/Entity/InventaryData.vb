@@ -10,6 +10,7 @@ Public Class InventaryData
     Private _listStatus As List(Of InventaryStatus)
     Private _listType As List(Of InventaryType)
     Private _listAppertain As List(Of InventaryAppertain)
+    Private _listBrand As List(Of Brand)
 
     Private appSettingReader As New Configuration.AppSettingsReader
 
@@ -49,11 +50,18 @@ Public Class InventaryData
         End Get
     End Property
 
+    ReadOnly Property Brands As List(Of Brand)
+        Get
+            Return _listBrand
+        End Get
+    End Property
+
     Public Sub New()
         LoadClients()
         LoadInventaryStatus()
         LoadInventaryAppertain()
         LoadInventoryType()
+        LoadBrands()
     End Sub
 
     Public Sub LoadDataByClient(codCliente As Integer)
@@ -93,17 +101,6 @@ Public Class InventaryData
 
     Public Sub LoadLocations()
         _listlocations = New List(Of Location)
-
-        'Dim query = String.Format("select 
-        '             COALESCE(Ub.cod_padre,0),
-        '             COALESCE(Ub.nom_padre,''),
-        '             COALESCE(Sub.codigo, 0),
-        '             COALESCE(Sub.nombre,''), 
-        '             COALESCE(Ub.cod_cliente,0)   
-        '             from  general.v_catalogo_ubicacion as Ub
-        '             inner join general.v_catalogo_sub_ubicacion AS Sub ON Ub.cod_padre = Sub.cod_padre
-        '                where Ub.cod_cliente = {0}            
-        '            order by 5", _codClient)
 
         Dim query = String.Format(appSettingReader.GetValue("LoadLocations", GetType(String)))
 
@@ -152,8 +149,11 @@ Public Class InventaryData
                                 inventary.SubLocation = reader.GetString(5).Trim()
                                 inventary.IdType = reader.GetInt32(6)
                                 inventary.Type = reader.GetString(7).Trim()
+
                                 inventary.IdBrand = reader.GetInt32(8)
                                 inventary.Brand = reader.GetString(9).Trim()
+
+
                                 inventary.IdModel = reader.GetInt32(10)
                                 inventary.Model = reader.GetString(11).Trim()
                                 inventary.IdNumberSerie = reader.GetInt32(12)
@@ -247,7 +247,7 @@ Public Class InventaryData
         '                        where estatus = 1 And codcat In ('PERTENENCIA')")
 
 
-        Dim query = appSettingReader.GetValue("LoadBelong", GetType(String))
+        Dim query = appSettingReader.GetValue("LoadAppertain", GetType(String))
 
         query = EliminarSaltosLinea(query)
         Using conn As New NpgsqlConnection(My.Resources.connectionString)
@@ -257,6 +257,32 @@ Public Class InventaryData
                     Using reader = cmd.ExecuteReader()
                         While reader.Read()
                             _listAppertain.Add(New InventaryAppertain With {
+                                                            .Id = reader.GetInt32(0),
+                                                            .Name = reader.GetString(1).Trim()
+                                                        })
+                        End While
+                    End Using
+                End Using
+                conn.Close()
+            Catch ex As Exception
+                MessageBox.Show("Error in Connection")
+            End Try
+        End Using
+    End Sub
+
+    Public Sub LoadBrands()
+        _listBrand = New List(Of Brand)
+
+        Dim query = appSettingReader.GetValue("LoadBrands", GetType(String))
+
+        query = EliminarSaltosLinea(query)
+        Using conn As New NpgsqlConnection(My.Resources.connectionString)
+            Try
+                conn.Open()
+                Using cmd As New NpgsqlCommand(query, conn)
+                    Using reader = cmd.ExecuteReader()
+                        While reader.Read()
+                            _listBrand.Add(New Brand With {
                                                             .Id = reader.GetInt32(0),
                                                             .Name = reader.GetString(1).Trim()
                                                         })
