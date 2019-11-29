@@ -36,11 +36,13 @@
 
     Property GR As String
 
+    Property EId As String
+
     Property IdClient As String
 
     ReadOnly Property Fnc_ins_inventario_primerpaso As String
         Get
-            Return String.Format("SELECT * FROM operativo.fnc_ins_inventario_primerpaso({0}, {1}, {2}, 2033, {3}, '{4}', 0, '{5}', 0, {6}, {7}, {8}, 0, Null, Null, {9}, '0', 'N/A', '0', '0', '0');", IdClient, IdCategory, IdType, IdBrand, Model, Serial, IdAppertain, IdLocation, IdSubLocation, IdStatus)
+            Return String.Format("SELECT * FROM operativo.fnc_ins_inventario_primerpaso({0}, {1}, {2}, 0, {3}, '{4}', 0, '{5}', 0, {6}, {7}, {8}, 0, Null, Null, {9}, '0', '{10}', '0', '0', '0',Null);", IdClient, IdCategory, IdType, IdBrand, Model, Serial, IdAppertain, IdLocation, IdSubLocation, IdStatus, EId)
         End Get
     End Property
 

@@ -112,6 +112,8 @@ Public Class Form1
 
                 inventary.GR = ParseValueObtained(xlWorkSheet.Cells(idRow, "K").Value)
 
+                inventary.EId = ParseValueObtained(xlWorkSheet.Cells(idRow, "L").Value)
+
                 inventaryList.Add(inventary)
             Next
             xlApp.Workbooks.Close()
