@@ -300,4 +300,35 @@ Public Class InventaryData
         EliminarSaltosLinea = Replace(Replace(texto, Chr(10), ""), Chr(13), "")
     End Function
 
+    Public Sub ExecuteData(script As String)
+        _listclients = New List(Of Client)
+
+        Dim scripts = script.Split(Chr(13))
+
+        script = Nothing
+
+
+
+        Using conn As New NpgsqlConnection(My.Resources.connectionString)
+            Try
+                conn.Open()
+
+                For Each scp As String In scripts
+
+                    scp = EliminarSaltosLinea(scp)
+
+                    Using cmd As New NpgsqlCommand(scp, conn)
+                        cmd.ExecuteNonQuery()
+                    End Using
+
+                Next
+                conn.Close()
+            Catch ex As Exception
+                MessageBox.Show("Error in Connection")
+            End Try
+        End Using
+
+
+    End Sub
+
 End Class

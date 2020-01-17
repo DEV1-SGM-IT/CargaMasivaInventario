@@ -7,6 +7,7 @@ Public Class Form1
 
     Private _listInventary As New List(Of InventaryObject)
     Private _waitForm As LoadingData
+    Private _waitLoadingForm As LoadingData
     Private _inventaryData As InventaryData
     Private _idClientSelected As String
 
@@ -19,6 +20,7 @@ Public Class Form1
         ' This call is required by the designer.
         InitializeComponent()
         _waitForm = New LoadingData
+        _waitLoadingForm = New LoadingData
         _listDataOBject = New List(Of InventaryObject)
         _inventaryData = New InventaryData()
         cbx_LoadType.SelectedIndex = 0
@@ -64,6 +66,10 @@ Public Class Form1
 
     Private Sub ShowWait()
         _waitForm.ShowDialog()
+    End Sub
+
+    Private Sub ShowLoadingWait()
+        _waitLoadingForm.ShowDialog()
     End Sub
 
     Public Function LoadFile(Path As String) As List(Of InventaryFile)
@@ -223,6 +229,14 @@ Public Class Form1
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)
         Me.Close()
+    End Sub
+
+    Private Sub btn_ExecuteQuery_Click(sender As Object, e As EventArgs) Handles btn_ExecuteQuery.Click
+        Dim tDialog = New Thread(New ThreadStart(AddressOf ShowLoadingWait))
+        tDialog.Start()
+        _inventaryData.ExecuteData(tbx_Script.Text)
+        MessageBox.Show("Execute data in database complete")
+        tDialog.Abort()
     End Sub
 End Class
 
