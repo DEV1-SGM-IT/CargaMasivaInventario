@@ -11,6 +11,8 @@ Public Class InventaryData
     Private _listType As List(Of InventaryType)
     Private _listAppertain As List(Of InventaryAppertain)
     Private _listBrand As List(Of Brand)
+    Private _listProveedores As List(Of Proveedor)
+    Private connectionType As String
 
     Private appSettingReader As New Configuration.AppSettingsReader
 
@@ -56,28 +58,38 @@ Public Class InventaryData
         End Get
     End Property
 
-    Public Sub New()
+    ReadOnly Property Proveedores As List(Of Proveedor)
+        Get
+            Return _listProveedores
+        End Get
+    End Property
+
+
+
+    Public Sub New(connectionType As String)
+        Me.connectionType = connectionType
         LoadClients()
-        LoadInventaryStatus()
-        LoadInventaryAppertain()
-        LoadInventoryType()
-        LoadBrands()
+        'LoadInventaryStatus()
+        'LoadInventaryAppertain()
+        'LoadInventoryType()
+        'LoadBrands()
+        LoadProveedores()
     End Sub
 
     Public Sub LoadDataByClient(codCliente As Integer)
         _codClient = codCliente
-        LoadLocations()
-        LoadInventory()
+        '   LoadLocations()
+        '    LoadInventory()
     End Sub
 
     Private Function LoadClients()
         _listclients = New List(Of Client)
-               
+
         Dim query = appSettingReader.GetValue("LoadClients", GetType(String))
 
 
         query = EliminarSaltosLinea(query)
-        Using conn As New NpgsqlConnection(My.Resources.connectionString)
+        Using conn As New NpgsqlConnection(GetConnectionString())
             Try
                 conn.Open()
                 Using cmd As New NpgsqlCommand(query, conn)
@@ -105,7 +117,7 @@ Public Class InventaryData
         Dim query = String.Format(appSettingReader.GetValue("LoadLocations", GetType(String)))
 
         query = EliminarSaltosLinea(query)
-        Using conn As New NpgsqlConnection(My.Resources.connectionString)
+        Using conn As New NpgsqlConnection(GetConnectionString())
             Try
                 conn.Open()
                 Using cmd As New NpgsqlCommand(query, conn)
@@ -132,7 +144,7 @@ Public Class InventaryData
         Dim query = appSettingReader.GetValue("LoadInventory", GetType(String))
 
         query = EliminarSaltosLinea(query)
-        Using conn As New NpgsqlConnection(My.Resources.connectionString)
+        Using conn As New NpgsqlConnection(GetConnectionString())
             Try
                 conn.Open()
                 Using cmd As New NpgsqlCommand(query, conn)
@@ -184,7 +196,7 @@ Public Class InventaryData
         Dim query = appSettingReader.GetValue("LoadInventoryType", GetType(String))
 
         query = EliminarSaltosLinea(query)
-        Using conn As New NpgsqlConnection(My.Resources.connectionString)
+        Using conn As New NpgsqlConnection(GetConnectionString())
             Try
                 conn.Open()
                 Using cmd As New NpgsqlCommand(query, conn)
@@ -194,6 +206,31 @@ Public Class InventaryData
                                                             .IdType = reader.GetInt32(0),
                                                             .Type = reader.GetString(1).Trim(),
                                                             .IdCategory = reader.GetInt32(2)
+                                                        })
+                        End While
+                    End Using
+                End Using
+                conn.Close()
+            Catch ex As Exception
+                MessageBox.Show("Error In Connection")
+            End Try
+        End Using
+    End Sub
+
+    Private Sub LoadProveedores()
+        _listProveedores = New List(Of Proveedor)
+        Dim query = appSettingReader.GetValue("LoadProveedores", GetType(String))
+
+        query = EliminarSaltosLinea(query)
+        Using conn As New NpgsqlConnection(GetConnectionString())
+            Try
+                conn.Open()
+                Using cmd As New NpgsqlCommand(query, conn)
+                    Using reader = cmd.ExecuteReader()
+                        While reader.Read()
+                            _listProveedores.Add(New Proveedor With {
+                                                            .Id = reader.GetInt32(0),
+                                                            .Name = reader.GetString(1).Trim()
                                                         })
                         End While
                     End Using
@@ -217,7 +254,7 @@ Public Class InventaryData
         Dim query = appSettingReader.GetValue("LoadInventoryStatus", GetType(String))
 
         query = EliminarSaltosLinea(query)
-        Using conn As New NpgsqlConnection(My.Resources.connectionString)
+        Using conn As New NpgsqlConnection(GetConnectionString())
             Try
                 conn.Open()
                 Using cmd As New NpgsqlCommand(query, conn)
@@ -240,17 +277,10 @@ Public Class InventaryData
     Public Sub LoadInventaryAppertain()
         _listAppertain = New List(Of InventaryAppertain)
 
-        'Dim query = String.Format("Select
-        '                            COALESCE(codigo,0),
-        '                            COALESCE(nombre,'')
-        '                        from general.v_catalogo_master 
-        '                        where estatus = 1 And codcat In ('PERTENENCIA')")
-
-
         Dim query = appSettingReader.GetValue("LoadAppertain", GetType(String))
 
         query = EliminarSaltosLinea(query)
-        Using conn As New NpgsqlConnection(My.Resources.connectionString)
+        Using conn As New NpgsqlConnection(GetConnectionString())
             Try
                 conn.Open()
                 Using cmd As New NpgsqlCommand(query, conn)
@@ -276,7 +306,7 @@ Public Class InventaryData
         Dim query = appSettingReader.GetValue("LoadBrands", GetType(String))
 
         query = EliminarSaltosLinea(query)
-        Using conn As New NpgsqlConnection(My.Resources.connectionString)
+        Using conn As New NpgsqlConnection(GetConnectionString())
             Try
                 conn.Open()
                 Using cmd As New NpgsqlCommand(query, conn)
@@ -305,11 +335,7 @@ Public Class InventaryData
 
         Dim scripts = script.Split(Chr(13))
 
-        script = Nothing
-
-
-
-        Using conn As New NpgsqlConnection(My.Resources.connectionString)
+        Using conn As New NpgsqlConnection(GetConnectionString())
             Try
                 conn.Open()
 
@@ -330,5 +356,20 @@ Public Class InventaryData
 
 
     End Sub
+
+    Public Function GetConnectionString()
+        Dim connectionSting As String = ""
+        Select Case connectionType
+            Case "Production"
+                connectionSting = My.Resources.connectionStringProduction
+            Case "Dev"
+                connectionSting = My.Resources.connectionStringDev
+            Case "Demo"
+                connectionSting = My.Resources.connectionStringDemo
+        End Select
+
+        Return connectionSting
+
+    End Function
 
 End Class

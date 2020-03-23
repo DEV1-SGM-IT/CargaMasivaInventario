@@ -22,7 +22,7 @@ Namespace My.Resources
     '''<summary>
     '''  A strongly-typed resource class, for looking up localized strings, etc.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0"),  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0"),  _
      Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
      Global.Microsoft.VisualBasic.HideModuleNameAttribute()>  _
@@ -61,11 +61,29 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Host=40.87.93.252;Username=postgres;Password=Twincept.l;Database=produccion2.
+        '''</summary>
+        Friend ReadOnly Property connectionStringDemo() As String
+            Get
+                Return ResourceManager.GetString("connectionStringDemo", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Host=40.87.93.252;Username=postgres;Password=Twincept.l;Database=qatester_2.
+        '''</summary>
+        Friend ReadOnly Property connectionStringDev() As String
+            Get
+                Return ResourceManager.GetString("connectionStringDev", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Host=40.87.93.252;Username=postgres;Password=Twincept.l;Database=biomedica.
         '''</summary>
-        Friend ReadOnly Property connectionString() As String
+        Friend ReadOnly Property connectionStringProduction() As String
             Get
-                Return ResourceManager.GetString("connectionString", resourceCulture)
+                Return ResourceManager.GetString("connectionStringProduction", resourceCulture)
             End Get
         End Property
     End Module

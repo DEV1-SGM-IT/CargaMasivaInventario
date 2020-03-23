@@ -22,11 +22,9 @@ Public Class Form1
         _waitForm = New LoadingData
         _waitLoadingForm = New LoadingData
         _listDataOBject = New List(Of InventaryObject)
-        _inventaryData = New InventaryData()
+        cbx_Servers.SelectedIndex = 0
+
         cbx_LoadType.SelectedIndex = 0
-
-        LoadClients()
-
     End Sub
 
     Private Sub LoadClients()
@@ -116,6 +114,10 @@ Public Class Form1
                 inventary.Appertain = ParseValueObtained(xlWorkSheet.Cells(idRow, "J").Value)
                 inventary.IdAppertain = GetInventoryAppertain(inventary.Appertain)
 
+                inventary.ProveedorServicio = GetSupplier(ParseValueObtained(xlWorkSheet.Cells(idRow, "M").Value))
+
+                inventary.ProveedorComercial = GetSupplier(ParseValueObtained(xlWorkSheet.Cells(idRow, "0").Value))
+
                 inventary.GR = ParseValueObtained(xlWorkSheet.Cells(idRow, "K").Value)
 
                 inventary.EId = ParseValueObtained(xlWorkSheet.Cells(idRow, "L").Value)
@@ -185,6 +187,15 @@ Public Class Form1
         End If
     End Function
 
+    Public Function GetSupplier(Appertain As String) As String
+        Dim appertainObtained = _inventaryData.Proveedores.FirstOrDefault(Function(x) x.Name.ToUpper() = Appertain.ToUpper())
+        If IsNothing(appertainObtained) Then
+            Return 0
+        Else
+            Return appertainObtained.Id
+        End If
+    End Function
+
     Public Function ParseValueObtained(valueToParse As Object) As String
         If Not IsNothing(valueToParse) Then
             Return valueToParse.ToString().Trim().ToUpper()
@@ -198,9 +209,14 @@ Public Class Form1
         If selectedClient.Id = 0 Then
             Return
         End If
+
+        'Dim tDialog1 = New Thread(New ThreadStart(AddressOf ShowWait))
+        'tDialog1.Start()
+
         _idClientSelected = selectedClient.Id
         _inventaryData.LoadDataByClient(selectedClient.Id)
         gb_Load.Enabled = True
+        'tDialog1.Abort()
     End Sub
 
     Private Sub LoadMissedData(listInventary As List(Of InventaryFile))
@@ -229,6 +245,17 @@ Public Class Form1
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)
         Me.Close()
+    End Sub
+
+    Private Sub cmb_Servers_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbx_Servers.SelectedIndexChanged
+        cbx_Client.Enabled = False
+        Dim cbo = TryCast(sender, ComboBox)
+        If cbo.SelectedIndex <> 0 Then
+            _inventaryData = New InventaryData(cbo.SelectedItem)
+            LoadClients()
+            cbx_Client.Enabled = True
+        End If
+
     End Sub
 
     Private Sub btn_ExecuteQuery_Click(sender As Object, e As EventArgs) Handles btn_ExecuteQuery.Click

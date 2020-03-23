@@ -124,6 +124,7 @@
     <Compile Include="Entity\InventaryType.vb" />
     <Compile Include="Entity\Location.vb" />
     <Compile Include="Entity\MenuItemvb.vb" />
+    <Compile Include="Entity\Proveerdor.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>

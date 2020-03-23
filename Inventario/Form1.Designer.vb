@@ -22,10 +22,10 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btn_LoadFile = New System.Windows.Forms.Button()
@@ -56,8 +56,11 @@ Partial Class Form1
         Me.SelBrand = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.Brand = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.tbx_Script = New System.Windows.Forms.TextBox()
         Me.btn_ExecuteQuery = New System.Windows.Forms.Button()
+        Me.tbx_Script = New System.Windows.Forms.TextBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.cbx_Servers = New System.Windows.Forms.ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.gb_Load.SuspendLayout()
         Me.gb_Client.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -72,6 +75,7 @@ Partial Class Form1
         Me.TableLayoutPanel5.SuspendLayout()
         CType(Me.dgv_Brand, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'OpenFileDialog1
@@ -125,7 +129,7 @@ Partial Class Form1
         Me.gb_Load.Controls.Add(Me.Label2)
         Me.gb_Load.Controls.Add(Me.tbx_File)
         Me.gb_Load.Enabled = False
-        Me.gb_Load.Location = New System.Drawing.Point(12, 78)
+        Me.gb_Load.Location = New System.Drawing.Point(12, 116)
         Me.gb_Load.Name = "gb_Load"
         Me.gb_Load.Size = New System.Drawing.Size(985, 60)
         Me.gb_Load.TabIndex = 6
@@ -157,9 +161,9 @@ Partial Class Form1
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.gb_Client.Controls.Add(Me.cbx_Client)
         Me.gb_Client.Controls.Add(Me.Label1)
-        Me.gb_Client.Location = New System.Drawing.Point(12, 12)
+        Me.gb_Client.Location = New System.Drawing.Point(12, 63)
         Me.gb_Client.Name = "gb_Client"
-        Me.gb_Client.Size = New System.Drawing.Size(985, 60)
+        Me.gb_Client.Size = New System.Drawing.Size(985, 47)
         Me.gb_Client.TabIndex = 7
         Me.gb_Client.TabStop = False
         '
@@ -180,10 +184,10 @@ Partial Class Form1
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Location = New System.Drawing.Point(12, 144)
+        Me.TabControl1.Location = New System.Drawing.Point(12, 182)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(987, 369)
+        Me.TabControl1.Size = New System.Drawing.Size(987, 368)
         Me.TabControl1.TabIndex = 8
         '
         'TabPage1
@@ -191,7 +195,7 @@ Partial Class Form1
         Me.TabPage1.Controls.Add(Me.TableLayoutPanel1)
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Size = New System.Drawing.Size(979, 343)
+        Me.TabPage1.Size = New System.Drawing.Size(979, 342)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Missed Data"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -213,7 +217,7 @@ Partial Class Form1
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(979, 343)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(979, 342)
         Me.TableLayoutPanel1.TabIndex = 3
         '
         'TableLayoutPanel2
@@ -228,21 +232,21 @@ Partial Class Form1
         Me.TableLayoutPanel2.RowCount = 2
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(244, 343)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(244, 342)
         Me.TableLayoutPanel2.TabIndex = 4
         '
         'dgv_SubLocation
         '
         Me.dgv_SubLocation.AllowUserToAddRows = False
         Me.dgv_SubLocation.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv_SubLocation.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_SubLocation.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle9
         Me.dgv_SubLocation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_SubLocation.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SelSubLocation, Me.DataGridViewTextBoxColumn3})
         Me.dgv_SubLocation.Dock = System.Windows.Forms.DockStyle.Fill
@@ -250,7 +254,7 @@ Partial Class Form1
         Me.dgv_SubLocation.Margin = New System.Windows.Forms.Padding(10)
         Me.dgv_SubLocation.Name = "dgv_SubLocation"
         Me.dgv_SubLocation.RowHeadersVisible = False
-        Me.dgv_SubLocation.Size = New System.Drawing.Size(224, 283)
+        Me.dgv_SubLocation.Size = New System.Drawing.Size(224, 282)
         Me.dgv_SubLocation.TabIndex = 6
         '
         'SelSubLocation
@@ -277,21 +281,21 @@ Partial Class Form1
         Me.TableLayoutPanel3.RowCount = 2
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(244, 343)
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(244, 342)
         Me.TableLayoutPanel3.TabIndex = 5
         '
         'dgv_Location
         '
         Me.dgv_Location.AllowUserToAddRows = False
         Me.dgv_Location.AllowUserToDeleteRows = False
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv_Location.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_Location.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
         Me.dgv_Location.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_Location.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SelLocation, Me.DataGridViewTextBoxColumn2})
         Me.dgv_Location.Dock = System.Windows.Forms.DockStyle.Fill
@@ -299,7 +303,7 @@ Partial Class Form1
         Me.dgv_Location.Margin = New System.Windows.Forms.Padding(10)
         Me.dgv_Location.Name = "dgv_Location"
         Me.dgv_Location.RowHeadersVisible = False
-        Me.dgv_Location.Size = New System.Drawing.Size(224, 283)
+        Me.dgv_Location.Size = New System.Drawing.Size(224, 282)
         Me.dgv_Location.TabIndex = 3
         '
         'SelLocation
@@ -327,21 +331,21 @@ Partial Class Form1
         Me.TableLayoutPanel4.RowCount = 2
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(244, 343)
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(244, 342)
         Me.TableLayoutPanel4.TabIndex = 6
         '
         'dgv_Type
         '
         Me.dgv_Type.AllowUserToAddRows = False
         Me.dgv_Type.AllowUserToDeleteRows = False
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv_Type.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_Type.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle11
         Me.dgv_Type.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_Type.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SelType, Me.DataGridViewTextBoxColumn1})
         Me.dgv_Type.Dock = System.Windows.Forms.DockStyle.Fill
@@ -349,7 +353,7 @@ Partial Class Form1
         Me.dgv_Type.Margin = New System.Windows.Forms.Padding(10)
         Me.dgv_Type.Name = "dgv_Type"
         Me.dgv_Type.RowHeadersVisible = False
-        Me.dgv_Type.Size = New System.Drawing.Size(224, 283)
+        Me.dgv_Type.Size = New System.Drawing.Size(224, 282)
         Me.dgv_Type.TabIndex = 2
         '
         'SelType
@@ -376,21 +380,21 @@ Partial Class Form1
         Me.TableLayoutPanel5.RowCount = 2
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(247, 343)
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(247, 342)
         Me.TableLayoutPanel5.TabIndex = 7
         '
         'dgv_Brand
         '
         Me.dgv_Brand.AllowUserToAddRows = False
         Me.dgv_Brand.AllowUserToDeleteRows = False
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgv_Brand.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgv_Brand.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle12
         Me.dgv_Brand.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_Brand.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SelBrand, Me.Brand})
         Me.dgv_Brand.Dock = System.Windows.Forms.DockStyle.Fill
@@ -398,7 +402,7 @@ Partial Class Form1
         Me.dgv_Brand.Margin = New System.Windows.Forms.Padding(10)
         Me.dgv_Brand.Name = "dgv_Brand"
         Me.dgv_Brand.RowHeadersVisible = False
-        Me.dgv_Brand.Size = New System.Drawing.Size(227, 283)
+        Me.dgv_Brand.Size = New System.Drawing.Size(227, 282)
         Me.dgv_Brand.TabIndex = 4
         '
         'SelBrand
@@ -420,10 +424,20 @@ Partial Class Form1
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(979, 343)
+        Me.TabPage2.Size = New System.Drawing.Size(979, 342)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Query: Insert Inventory"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'btn_ExecuteQuery
+        '
+        Me.btn_ExecuteQuery.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btn_ExecuteQuery.Location = New System.Drawing.Point(896, 314)
+        Me.btn_ExecuteQuery.Name = "btn_ExecuteQuery"
+        Me.btn_ExecuteQuery.Size = New System.Drawing.Size(70, 23)
+        Me.btn_ExecuteQuery.TabIndex = 4
+        Me.btn_ExecuteQuery.Text = "Execute Query"
+        Me.btn_ExecuteQuery.UseVisualStyleBackColor = True
         '
         'tbx_Script
         '
@@ -436,24 +450,47 @@ Partial Class Form1
         Me.tbx_Script.Name = "tbx_Script"
         Me.tbx_Script.ReadOnly = True
         Me.tbx_Script.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.tbx_Script.Size = New System.Drawing.Size(953, 288)
+        Me.tbx_Script.Size = New System.Drawing.Size(953, 287)
         Me.tbx_Script.TabIndex = 0
         '
-        'btn_ExecuteQuery
+        'GroupBox1
         '
-        Me.btn_ExecuteQuery.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btn_ExecuteQuery.Location = New System.Drawing.Point(896, 314)
-        Me.btn_ExecuteQuery.Name = "btn_ExecuteQuery"
-        Me.btn_ExecuteQuery.Size = New System.Drawing.Size(70, 23)
-        Me.btn_ExecuteQuery.TabIndex = 4
-        Me.btn_ExecuteQuery.Text = "Execute Query"
-        Me.btn_ExecuteQuery.UseVisualStyleBackColor = True
+        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.cbx_Servers)
+        Me.GroupBox1.Controls.Add(Me.Label4)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(985, 45)
+        Me.GroupBox1.TabIndex = 9
+        Me.GroupBox1.TabStop = False
+        '
+        'cbx_Servers
+        '
+        Me.cbx_Servers.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbx_Servers.FormattingEnabled = True
+        Me.cbx_Servers.Items.AddRange(New Object() {"Select Sever", "Dev", "Demo", "Production"})
+        Me.cbx_Servers.Location = New System.Drawing.Point(52, 12)
+        Me.cbx_Servers.Name = "cbx_Servers"
+        Me.cbx_Servers.Size = New System.Drawing.Size(222, 21)
+        Me.cbx_Servers.TabIndex = 3
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(7, 15)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(38, 13)
+        Me.Label4.TabIndex = 4
+        Me.Label4.Text = "Server"
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1011, 525)
+        Me.ClientSize = New System.Drawing.Size(1011, 562)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.gb_Client)
         Me.Controls.Add(Me.gb_Load)
@@ -475,6 +512,8 @@ Partial Class Form1
         CType(Me.dgv_Brand, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -511,4 +550,7 @@ Partial Class Form1
     Friend WithEvents SelBrand As DataGridViewCheckBoxColumn
     Friend WithEvents Brand As DataGridViewTextBoxColumn
     Friend WithEvents btn_ExecuteQuery As Button
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents cbx_Servers As ComboBox
+    Friend WithEvents Label4 As Label
 End Class
