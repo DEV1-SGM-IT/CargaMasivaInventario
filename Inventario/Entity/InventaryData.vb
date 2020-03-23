@@ -69,17 +69,17 @@ Public Class InventaryData
     Public Sub New(connectionType As String)
         Me.connectionType = connectionType
         LoadClients()
-        'LoadInventaryStatus()
-        'LoadInventaryAppertain()
-        'LoadInventoryType()
-        'LoadBrands()
+        LoadInventaryStatus()
+        LoadInventaryAppertain()
+        LoadInventoryType()
+        LoadBrands()
         LoadProveedores()
     End Sub
 
     Public Sub LoadDataByClient(codCliente As Integer)
         _codClient = codCliente
-        '   LoadLocations()
-        '    LoadInventory()
+        LoadLocations()
+        LoadInventory()
     End Sub
 
     Private Function LoadClients()

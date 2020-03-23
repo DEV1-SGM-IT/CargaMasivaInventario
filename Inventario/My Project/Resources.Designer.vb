@@ -59,7 +59,7 @@ Namespace My.Resources
                 resourceCulture = value
             End Set
         End Property
-        
+
         '''<summary>
         '''  Looks up a localized string similar to Host=40.87.93.252;Username=postgres;Password=Twincept.l;Database=produccion2.
         '''</summary>
@@ -68,7 +68,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("connectionStringDemo", resourceCulture)
             End Get
         End Property
-        
+
         '''<summary>
         '''  Looks up a localized string similar to Host=40.87.93.252;Username=postgres;Password=Twincept.l;Database=qatester_2.
         '''</summary>
