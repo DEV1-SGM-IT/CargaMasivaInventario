@@ -350,7 +350,7 @@ Public Class InventaryData
                 Next
                 conn.Close()
             Catch ex As Exception
-                MessageBox.Show("Error in Connection")
+                MessageBox.Show(String.Format("Excution error  - {0} ", ex.Message))
             End Try
         End Using
 

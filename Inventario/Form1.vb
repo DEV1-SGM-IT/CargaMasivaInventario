@@ -114,9 +114,12 @@ Public Class Form1
                 inventary.Appertain = ParseValueObtained(xlWorkSheet.Cells(idRow, "J").Value)
                 inventary.IdAppertain = GetInventoryAppertain(inventary.Appertain)
 
-                inventary.ProveedorServicio = GetSupplier(ParseValueObtained(xlWorkSheet.Cells(idRow, "M").Value))
+                inventary.SupplierService = ParseValueObtained(xlWorkSheet.Cells(idRow, "M").Value)
+                inventary.IdProveedorServicio = GetSupplier(inventary.SupplierService)
 
-                inventary.ProveedorComercial = GetSupplier(ParseValueObtained(xlWorkSheet.Cells(idRow, "0").Value))
+
+                inventary.SupplierComercial = ParseValueObtained(xlWorkSheet.Cells(idRow, "O").Value)
+                inventary.IdProveedorComercial = GetSupplier(inventary.SupplierComercial)
 
                 inventary.GR = ParseValueObtained(xlWorkSheet.Cells(idRow, "K").Value)
 
@@ -239,6 +242,14 @@ Public Class Form1
 
         For Each item In listInventary.Where(Function(x) x.IdSubLocation = "0").Select(Function(x) x.SubLocation).Distinct()
             dgv_SubLocation.Rows.Add(False, item)
+        Next
+
+        For Each item In listInventary.Where(Function(x) x.IdProveedorServicio = "0").Select(Function(x) x.SupplierService).Distinct()
+            dgv_Supplier.Rows.Add(False, item)
+        Next
+
+        For Each item In listInventary.Where(Function(x) x.IdProveedorComercial = "0").Select(Function(x) x.SupplierComercial).Distinct()
+            dgv_Supplier.Rows.Add(False, item)
         Next
 
     End Sub
