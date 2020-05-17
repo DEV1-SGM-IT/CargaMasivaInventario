@@ -338,15 +338,13 @@ Public Class InventaryData
         Using conn As New NpgsqlConnection(GetConnectionString())
             Try
                 conn.Open()
-
                 For Each scp As String In scripts
-
                     scp = EliminarSaltosLinea(scp)
-
-                    Using cmd As New NpgsqlCommand(scp, conn)
-                        cmd.ExecuteNonQuery()
-                    End Using
-
+                    If Not IsNothing(scp) Then
+                        Using cmd As New NpgsqlCommand(scp, conn)
+                            cmd.ExecuteNonQuery()
+                        End Using
+                    End If
                 Next
                 conn.Close()
             Catch ex As Exception
